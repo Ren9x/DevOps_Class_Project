@@ -1,0 +1,18 @@
+{{/* Minimal base template to include header and page content. This overrides theme base if any. */}}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+    <link rel="stylesheet" href="/css/override.css">
+  </head>
+  <body>
+    {{ partial "header.html" . }}
+    <main>
+      {{ block "main" . }}
+        {{ .Content }}
+      {{ end }}
+    </main>
+  </body>
+</html>
