@@ -1,3 +1,4 @@
+baseURL = "/"
 contentdir    = "content"
 layoutdir     = "layouts"
 publishdir    = "public"
@@ -9,10 +10,26 @@ metaDataFormat = "yaml"
 pygmentsUseClasses = true
 pygmentCodeFences = true
 
+# Theme settings
+theme = ""  # Leave empty if using custom layouts
+
+# Site parameters
 [Params]
   dateFormat = "January 2, 2006"
   commit = false
   rss = false
-
+  description = "A DevOps Blog"
+  mainSections = ["posts"]
+  
 [Author]
   name = "Onur Yilmaz"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 2
