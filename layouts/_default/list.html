@@ -1,0 +1,34 @@
+{{ define "main" }}
+<div class="container">
+  <div class="content">
+    {{ .Content }}
+    
+    {{ if .Pages }}
+    <section class="posts">
+      <h2>Recent Posts</h2>
+      {{ range .Pages }}
+      <article class="post-summary">
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        <div class="post-meta">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+          {{ if .Params.tags }}
+          <div class="tags">
+            {{ range .Params.tags }}
+            <span class="tag">{{ . }}</span>
+            {{ end }}
+          </div>
+          {{ end }}
+        </div>
+        <div class="post-excerpt">
+          {{ .Summary }}
+        </div>
+        {{ if .Truncated }}
+        <a href="{{ .Permalink }}" class="read-more">Read more →</a>
+        {{ end }}
+      </article>
+      {{ end }}
+    </section>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
